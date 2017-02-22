@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0;">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="frozenUi/css/frozen.css" media="screen">
+    <script type="text/javascript" src="frozenUi/lib/zepto.min.js"></script>
+    <script type="text/javascript" src="frozenUi/js/frozen.js"></script>
+
+    <style type="text/css">
+        div.item_container {
+            width: 100%;
+            height: 180px;
+            background-position: center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        div.title {
+            border-radius: 5px;
+            width: 150px;
+            height: 50px;
+            border: 2px solid #ffffff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="body">
+<section class="ui-container">
+
+    <ul class="">
+        <li>
+            <img src="images/logo_post.png" style="width: 100%;height: auto;"/>
+        </li>
+        <li>
+            <div onclick="onTapCategory()" class="ui-flex ui-flex-pack-center ui-flex-align-center item_container"
+                 style="background-image: url('images/hetun.jpg'); ">
+                <div class="title">
+                    <h align="center" style="line-height:50px;color: #ffffff;font-size: 35px;">特色菜</h>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="ui-flex ui-flex-pack-center ui-flex-align-center item_container"
+                 style="background-image: url('images/kourou.jpeg');">
+                <div class="title">
+                    <h align="center" style="line-height:50px;color: #ffffff;font-size: 35px;">炒菜</h>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="ui-flex ui-flex-pack-center ui-flex-align-center item_container"
+                 style="background-image: url('images/lengrou.jpg');">
+                <div class="title">
+                    <h align="center" style="line-height:50px;color: #ffffff;font-size: 35px;">冷菜</h>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+
+<script type="text/javascript">
+    function onTapCategory() {
+        location.href = 'showCases';
+    }
+</script>
+</body>
+</html>
