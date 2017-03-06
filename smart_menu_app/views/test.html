@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0;">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="frozenUi/css/frozen.css" media="screen">
+
+    <script type="text/javascript" src="frozenUi/lib/zepto.min.js"></script>
+    <script type="text/javascript" src="frozenUi/js/frozen.js"></script>
+    <link rel="stylesheet" href="css/case-item.css" media="screen">
+
+    <style type="text/css">
+
+
+    </style>
+</head>
+<body class="body">
+<header class="ui-header ui-header-positive ui-border-b" style="background-color: #4F4C4C">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+
+    <h1><%= title %></h1>
+</header>
+<div id="shadow-bg" class="shadow-bg" onclick="onTapShadow()">
+
+</div>
+<footer class="ui-footer ui-footer-stable ui-border-t">
+    <div class="ui-row-flex" style="height: 100%;">
+        <div onclick="onTapCart()" class="ui-col ui-col-3">
+            <div class="ui-row account" style="">
+                <div class="cart">
+                    <img src="icons/cart_icon.png">
+
+                    <div class="ui-badge"></div>
+                </div>
+                <p>购物车空空如也~</p>
+            </div>
+        </div>
+        <div class="ui-col complete">结算</div>
+    </div>
+</footer>
+
+<section class="ui-container">
+    <div style="max-height: 200px">
+    <ul class="ui-list ui-list-function ui-list-link ui-border-tb"
+        style="">
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+        <li class="ui-border-t">
+            <div class="ui-avatar-s">
+                <span style="background-image:url(http://placeholder.qiniudn.com/80x80)"></span>
+            </div>
+            <div class="ui-list-info">
+                <h4 class="ui-nowrap">这是标题，加ui-nowrap可以超出长度截断</h4>
+            </div>
+            <div class="ui-btn">PK</div>
+        </li>
+    </ul>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var caseNums = 0;
+    function addToCart() {
+        caseNums++;
+        if (caseNums > 0) {
+            $('.ui-badge').css('display', 'block');
+            $('.ui-badge').html(caseNums);
+        }
+    }
+
+    function onTapCart() {
+        $('.shadow-bg').css('display', 'block');
+        /*禁止滑动*/
+        $('.shadow-bg').bind("touchmove", function (e) {
+            e.preventDefault();
+        });
+    }
+
+    function onTapShadow() {
+        $('.shadow-bg').css('display', 'none');
+    }
+</script>
+</body>
+</html>

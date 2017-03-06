@@ -1,0 +1,76 @@
+/*隐藏滚轮*/
+::-webkit-scrollbar {
+    display: none;
+}
+
+.left_col .right_col {
+    background-color: #ffffff;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.left_col{
+    background-color: #4F4C4C;
+}
+
+.left-col-item{
+    background-color: #4F4C4C;
+    margin-left:0px !important;
+}
+
+.ui-list-img {
+    width: 68px;
+}
+
+.ui-list-img span {
+    background-position: center center;
+    background-size: cover;
+}
+
+.ui-list-info {
+    -webkit-box-pack: start;
+}
+
+.ui-list-info h6 {
+    position: absolute;
+    bottom: 10px;
+    color: #a3a3a3;
+}
+
+.ui-list-add-btn {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.ui-list-remove-btn {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+}
+
+.case_num_h{
+    width: auto;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 45px;
+}
+
+.ui-list-add-btn img{
+    width: 100%;
+    height: 100%;
+}
+
+.ui-list-remove-btn img{
+    width: 100%;
+    height: 100%;
+}
+
+.left-item-selected{
+    background-color: #ffffff;
+}

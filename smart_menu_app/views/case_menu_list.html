@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0;">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="frozenUi/css/frozen.css" media="screen">
+    <script type="text/javascript" src="frozenUi/lib/zepto.min.js"></script>
+    <script type="text/javascript" src="frozenUi/js/frozen.js"></script>
+    <link rel="stylesheet" href="css/case-menu.css" media="screen">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+<header class="ui-header ui-header-positive" style="background-color: #4F4C4C">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+
+    <h1>菜单</h1>
+</header>
+<section class="ui-container">
+    <div class="ui-row-flex">
+        <div class="ui-col left_col">
+            <ul class="ui-list ui-border-tb left_col_ul">
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">特色菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <section class="ui-col right_col ui-col-3">
+            <ul class="ui-list ui-border-tb">
+                <li class="ui-border-t">
+                    <div class="ui-list-img ui-tag-hot">
+                        <span style="background-image:url(images/hetun.jpg);"></span>
+                    </div>
+                    <div class="ui-list-info">
+                        <h4 class="ui-nowrap">红烧河豚</h4>
+                        <h4 class="ui-nowrap" style="color: #FF5E24;">123.0￥</h4>
+                        <h6 class="ui-nowrap">325人点过</h6>
+                    </div>
+                    <div class="ui-list-add-btn" onclick="onTapAdd(1)">
+                        <img src="icons/add_icon.png">
+                    </div>
+                    <h4 class="case_num_h">0</h4>
+
+                    <div class="ui-list-remove-btn">
+                        <img src="icons/remove_icon.png">
+                    </div>
+                </li>
+                <li class="ui-border-t">
+                    <div class="ui-list-img ui-tag-hot">
+                        <span style="background-image:url(images/hetun.jpg);"></span>
+                    </div>
+                    <div class="ui-list-info">
+                        <h4 class="ui-nowrap">红烧河豚</h4>
+                        <h4 class="ui-nowrap" style="color: #FF5E24;">123.0￥</h4>
+                        <h6 class="ui-nowrap">325人点过</h6>
+                    </div>
+                    <div class="ui-list-add-btn">
+                        <img src="icons/add_icon.png">
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    var naviBarHight = $('.ui-header').height();
+    $('.left_col').css('height', $(window).height() - naviBarHight);
+    $('.right_col').css('height', $(window).height() - naviBarHight);
+
+    /*第一个为选中状态*/
+    $(".left_col_ul li:first-child").addClass("left-item-selected");
+    $(".left_col_ul li:first-child div h4").css('color', '#000000');
+
+    $('.left_col_ul li').click(function () {
+        var currentThis = this;
+        $(".left_col_ul li").each(function () {
+            if (currentThis == this) {
+                $(this).addClass("left-item-selected");
+                $(this).find('h4').css('color', '#000000');
+            } else {
+                $(this).removeClass("left-item-selected");
+                $(this).find('h4').css('color', '#ffffff');
+            }
+        });
+    });
+
+    var n = 0;
+    $('.ui-list-add-btn').click(function () {
+        var index = $(this).parent().index();
+        n ++;
+        $(this).parent().find('.case_num_h').text(n);
+    });
+
+    $('.ui-list-remove-btn').click(function () {
+        var index = $(this).parent().index();
+        n --;
+        $(this).parent().find('.case_num_h').text(n);
+    });
+</script>
+</body>
+</html>

@@ -7,7 +7,8 @@ var router = express.Router();
 var caseCategoryCtrl = require('../controller/CaseCategoryCtrl.js');
 var caseListCtrl = require('../controller/CaseListCtrl.js');
 
-router.route('/').get(caseCategoryCtrl.onShowCategory);
+router.route('/').get(caseListCtrl.onShowCases);
 router.route('/showCases').get(caseListCtrl.onShowCases);
+router.route('/test').get(caseListCtrl.onShowTest);
 
 module.exports = router;
