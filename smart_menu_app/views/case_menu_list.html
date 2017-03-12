@@ -9,8 +9,14 @@
     <script type="text/javascript" src="frozenUi/js/frozen.js"></script>
     <link rel="stylesheet" href="css/case-menu.css" media="screen">
 
-    <style type="text/css">
+    <script type="text/javascript" src="iScroll/iscroll.js"></script>
+    <script type="text/javascript">
+    </script>
 
+    <style type="text/css">
+        div .ui-badge {
+            display: none;
+        }
     </style>
 </head>
 <body class="body">
@@ -19,9 +25,145 @@
 
     <h1>菜单</h1>
 </header>
+<div id="shadow-bg" class="shadow-bg" onclick="onTapShadow()">
+</div>
+<div class="order_goods">
+    <!--<div class="list-header ui-flex ui-flex-align-center ui-flex-pack-end"-->
+         <!--style="width: 100%;height: 30px;padding-right: 10px;">-->
+        <!--<div class="ui-row" style="">-->
+            <!--<img style="float: left; width: 15px;height: 15px;" src="icons/delete_icon.png"/>-->
+            <!--<h6 class="ui-nowrap" style="color: #4F4C4C">清空购物车</h6>-->
+        <!--</div>-->
+    <!--</div>-->
+        <ul class="ui-list ui-list-function ui-border-tb">
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+
+                <h4 class="order_price">￥123.0</h4>
+
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png"/>
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png">
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png">
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png">
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png">
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png">
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+            <li class="ui-border-t">
+                <h4 class="dot_character">&#8226;</h4>
+
+                <div class="ui-list-info" style="margin-left: 10px">
+                    <h4 class="ui-nowrap">红烧河豚</h4>
+                </div>
+                <div class="ui-list-add-btn">
+                    <img src="icons/add_icon.png">
+                </div>
+                <h4 class="case_num_h" style="display: block;">1</h4>
+
+                <div class="ui-list-remove-btn" style="display: block;">
+                    <img src="icons/remove_icon.png">
+                </div>
+            </li>
+        </ul>
+</div>
+<footer class="ui-footer ui-footer-stable ui-border-t">
+    <div class="ui-row-flex" style="height: 100%;">
+        <div onclick="onTapCart()" class="ui-col ui-col-3">
+            <div class="ui-row account" style="">
+                <div class="cart">
+                    <img src="icons/cart_icon.png">
+
+                    <div class="ui-badge"></div>
+                </div>
+                <p>购物车空空如也~</p>
+            </div>
+        </div>
+        <div class="ui-col complete">结算</div>
+    </div>
+</footer>
 <section class="ui-container">
     <div class="ui-row-flex">
-        <div class="ui-col left_col">
+        <div class="ui-col left_col" id="left_col">
             <ul class="ui-list ui-border-tb left_col_ul">
                 <li class="left-col-item">
                     <div class="ui-list-info" style="margin-left: 15px">
@@ -33,9 +175,59 @@
                         <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
                     </div>
                 </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
+                <li class="left-col-item">
+                    <div class="ui-list-info" style="margin-left: 15px">
+                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
+                    </div>
+                </li>
             </ul>
         </div>
-        <section class="ui-col right_col ui-col-3">
+        <div class="ui-col right_col ui-col-3" id="right_col">
             <ul class="ui-list ui-border-tb">
                 <li class="ui-border-t">
                     <div class="ui-list-img ui-tag-hot">
@@ -46,7 +238,7 @@
                         <h4 class="ui-nowrap" style="color: #FF5E24;">123.0￥</h4>
                         <h6 class="ui-nowrap">325人点过</h6>
                     </div>
-                    <div class="ui-list-add-btn" onclick="onTapAdd(1)">
+                    <div class="ui-list-add-btn">
                         <img src="icons/add_icon.png">
                     </div>
                     <h4 class="case_num_h">0</h4>
@@ -67,17 +259,26 @@
                     <div class="ui-list-add-btn">
                         <img src="icons/add_icon.png">
                     </div>
+                    <h4 class="case_num_h">0</h4>
+
+                    <div class="ui-list-remove-btn">
+                        <img src="icons/remove_icon.png">
+                    </div>
                 </li>
             </ul>
-        </section>
+        </div>
     </div>
 </section>
 
-
 <script type="text/javascript">
-    var naviBarHight = $('.ui-header').height();
-    $('.left_col').css('height', $(window).height() - naviBarHight);
-    $('.right_col').css('height', $(window).height() - naviBarHight);
+
+    var orderNums = 0;//已点商品总数
+
+    /*将导航栏的高度和底部结算栏的高度去掉*/
+    var headBarHight = $('.ui-header').height();
+    var footerHeight = $('.ui-footer').height();
+    $('.left_col').css('height', $(window).height() - headBarHight - footerHeight);
+    $('.right_col').css('height', $(window).height() - headBarHight - footerHeight);
 
     /*第一个为选中状态*/
     $(".left_col_ul li:first-child").addClass("left-item-selected");
@@ -96,18 +297,78 @@
         });
     });
 
-    var n = 0;
     $('.ui-list-add-btn').click(function () {
-        var index = $(this).parent().index();
-        n ++;
-        $(this).parent().find('.case_num_h').text(n);
+        orderNums ++;
+        if(orderNums > 0){
+            $('.ui-badge').css('display', 'block');
+            $('.ui-badge').html(orderNums);
+        }
+        var nums = $(this).parent().find('.case_num_h').text();
+        nums = parseInt(nums);
+        nums = nums + 1;
+        $(this).parent().find('.case_num_h').css('display', 'block');
+        $(this).parent().find('.case_num_h').text(nums);
+        $(this).parent().find('.ui-list-remove-btn').css('display', 'block');
     });
 
     $('.ui-list-remove-btn').click(function () {
-        var index = $(this).parent().index();
-        n --;
-        $(this).parent().find('.case_num_h').text(n);
+//        var index = $(this).parent().index();//li的index
+        orderNums --;
+        $('.ui-badge').html(orderNums);
+        if(orderNums == 0){
+            $('.ui-badge').css('display', 'none');
+        }
+        var nums = $(this).parent().find('.case_num_h').text();
+        nums = nums - 1;
+        if (nums == 0) {
+            $(this).parent().find('.case_num_h').css('display', 'none');
+            $(this).css('display', 'none');
+        }
+        $(this).parent().find('.case_num_h').text(nums);
     });
+
+    var mleftScroll;
+    var mrightScroll;
+    var orderGoodsScroll;
+    mleftScroll = new IScroll('.left_col', {
+        preventDefault: false,
+        hScrollbar: false,
+        vScroll: true,
+        hideScrollbar: true //是否隐藏滚动条
+    });
+    mrightScroll = new IScroll('.right_col', {
+        preventDefault: false,
+        hScrollbar: false,
+        vScroll: true,
+        hideScrollbar: true //是否隐藏滚动条
+    });
+    $('body').bind("touchmove", function (e) {
+        e.preventDefault();
+    });
+
+    function onTapCart() {
+        $('.shadow-bg').css('display', 'block');
+        /*禁止滑动*/
+        $('.shadow-bg').bind("touchmove", function (e) {
+            e.preventDefault();
+        });
+
+        $('.order_goods').css('display', 'block');
+
+        orderGoodsScroll = new IScroll('.order_goods', {
+            preventDefault: false,
+            hScrollbar: false,
+            vScroll: true,
+            hideScrollbar: true //是否隐藏滚动条
+        });
+    }
+
+    function onTapShadow() {
+        $('.order_goods').css('display', 'none');
+        $('.shadow-bg').css('display', 'none');
+        orderGoodsScroll = null;
+    }
+
 </script>
 </body>
 </html>

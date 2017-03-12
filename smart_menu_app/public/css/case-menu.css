@@ -9,13 +9,13 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.left_col{
+.left_col {
     background-color: #4F4C4C;
 }
 
-.left-col-item{
+.left-col-item {
     background-color: #4F4C4C;
-    margin-left:0px !important;
+    margin-left: 0px !important;
 }
 
 .ui-list-img {
@@ -51,26 +51,111 @@
     position: absolute;
     bottom: 10px;
     right: 60px;
+    display: none;
 }
 
-.case_num_h{
+.case_num_h {
     width: auto;
     height: auto;
     position: absolute;
     bottom: 10px;
     right: 45px;
+    display: none;
 }
 
-.ui-list-add-btn img{
+.ui-list-add-btn img {
     width: 100%;
     height: 100%;
 }
 
-.ui-list-remove-btn img{
+.ui-list-remove-btn img {
     width: 100%;
     height: 100%;
 }
 
-.left-item-selected{
+.left-item-selected {
     background-color: #ffffff;
+}
+
+.ui-footer {
+    height: 45px;
+}
+
+.cart {
+    margin-left: 10px;
+    float: left;
+    position: relative;
+}
+
+.cart div {
+    position: absolute;
+    top: 1px;
+    right: 0px;
+}
+
+.cart img {
+    width: 35px;
+    height: auto;
+    margin-top: 5px;
+}
+
+.account {
+    width: 100%;
+    height: 100%;
+}
+
+.account p {
+    float: left;
+    line-height: 45px;
+    color: #a4a4a4;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.complete {
+    background-color: #DE5245;
+    text-align: center;
+    color: #ffffff;
+    line-height: 45px;
+}
+
+.shadow-bg {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 100;
+    -moz-opacity: 0.7;
+    opacity: .70;
+    filter: alpha(opacity=70);
+}
+
+.order_goods {
+    display: none;
+    z-index: 100;
+    width: 100%;
+    max-height: 220px;
+    position: fixed;
+    bottom: 45px;
+    overflow-y: scroll;
+    background-color: #ffffff;
+}
+
+.dot_character {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    color: #4F4C4C;
+}
+
+.order_price{
+    width: auto;
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 120px;
+    color: #FF5E24;
 }
