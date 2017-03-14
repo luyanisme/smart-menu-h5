@@ -35,116 +35,7 @@
             <!--<h6 class="ui-nowrap" style="color: #4F4C4C">清空购物车</h6>-->
         <!--</div>-->
     <!--</div>-->
-        <ul class="ui-list ui-list-function ui-border-tb">
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-
-                <h4 class="order_price">￥123.0</h4>
-
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png"/>
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png">
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png">
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png">
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png">
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png">
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-            <li class="ui-border-t">
-                <h4 class="dot_character">&#8226;</h4>
-
-                <div class="ui-list-info" style="margin-left: 10px">
-                    <h4 class="ui-nowrap">红烧河豚</h4>
-                </div>
-                <div class="ui-list-add-btn">
-                    <img src="icons/add_icon.png">
-                </div>
-                <h4 class="case_num_h" style="display: block;">1</h4>
-
-                <div class="ui-list-remove-btn" style="display: block;">
-                    <img src="icons/remove_icon.png">
-                </div>
-            </li>
-        </ul>
+        <ul class="ui-list ui-list-function ui-border-tb"></ul>
 </div>
 <footer class="ui-footer ui-footer-stable ui-border-t">
     <div class="ui-row-flex" style="height: 100%;">
@@ -165,78 +56,29 @@
     <div class="ui-row-flex">
         <div class="ui-col left_col" id="left_col">
             <ul class="ui-list ui-border-tb left_col_ul">
+                <%categories.forEach(function(category){%>
                 <li class="left-col-item">
                     <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">特色菜</h4>
+                        <h4 class="ui-nowrap" style="color: #ffffff"><%= category.name%></h4>
                     </div>
                 </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
-                <li class="left-col-item">
-                    <div class="ui-list-info" style="margin-left: 15px">
-                        <h4 class="ui-nowrap" style="color: #ffffff">炒菜</h4>
-                    </div>
-                </li>
+                <%})%>
             </ul>
         </div>
         <div class="ui-col right_col ui-col-3" id="right_col">
             <ul class="ui-list ui-border-tb">
+
+
+                <%categories[0].specials.forEach(function(special){%>
+
                 <li class="ui-border-t">
                     <div class="ui-list-img ui-tag-hot">
-                        <span style="background-image:url(images/hetun.jpg);"></span>
+                        <span style="background-image:url(<%= special.img%>);"></span>
                     </div>
                     <div class="ui-list-info">
-                        <h4 class="ui-nowrap">红烧河豚</h4>
-                        <h4 class="ui-nowrap" style="color: #FF5E24;">123.0￥</h4>
-                        <h6 class="ui-nowrap">325人点过</h6>
+                        <h4 class="ui-nowrap"><%= special.name%></h4>
+                        <h4 class="ui-nowrap" style="color: #FF5E24;"><%= special.price%>.0￥</h4>
+                        <h6 class="ui-nowrap"><%= special.orderNums%>人点过</h6>
                     </div>
                     <div class="ui-list-add-btn">
                         <img src="icons/add_icon.png">
@@ -247,24 +89,8 @@
                         <img src="icons/remove_icon.png">
                     </div>
                 </li>
-                <li class="ui-border-t">
-                    <div class="ui-list-img ui-tag-hot">
-                        <span style="background-image:url(images/hetun.jpg);"></span>
-                    </div>
-                    <div class="ui-list-info">
-                        <h4 class="ui-nowrap">红烧河豚</h4>
-                        <h4 class="ui-nowrap" style="color: #FF5E24;">123.0￥</h4>
-                        <h6 class="ui-nowrap">325人点过</h6>
-                    </div>
-                    <div class="ui-list-add-btn">
-                        <img src="icons/add_icon.png">
-                    </div>
-                    <h4 class="case_num_h">0</h4>
+                <%})%>
 
-                    <div class="ui-list-remove-btn">
-                        <img src="icons/remove_icon.png">
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
@@ -272,60 +98,16 @@
 
 <script type="text/javascript">
 
-    var orderNums = 0;//已点商品总数
+    /*存放已点商品的数组*/
+    var orderSpecials = [];
+    var categoryIndex = 0;//记录当前是第几个选项
+    var categories = JSON.parse("<%= JSON.stringify(categories)%>".replace(/&#34;/g, '"'));//将实体编码进行转换
 
     /*将导航栏的高度和底部结算栏的高度去掉*/
     var headBarHight = $('.ui-header').height();
     var footerHeight = $('.ui-footer').height();
     $('.left_col').css('height', $(window).height() - headBarHight - footerHeight);
     $('.right_col').css('height', $(window).height() - headBarHight - footerHeight);
-
-    /*第一个为选中状态*/
-    $(".left_col_ul li:first-child").addClass("left-item-selected");
-    $(".left_col_ul li:first-child div h4").css('color', '#000000');
-
-    $('.left_col_ul li').click(function () {
-        var currentThis = this;
-        $(".left_col_ul li").each(function () {
-            if (currentThis == this) {
-                $(this).addClass("left-item-selected");
-                $(this).find('h4').css('color', '#000000');
-            } else {
-                $(this).removeClass("left-item-selected");
-                $(this).find('h4').css('color', '#ffffff');
-            }
-        });
-    });
-
-    $('.ui-list-add-btn').click(function () {
-        orderNums ++;
-        if(orderNums > 0){
-            $('.ui-badge').css('display', 'block');
-            $('.ui-badge').html(orderNums);
-        }
-        var nums = $(this).parent().find('.case_num_h').text();
-        nums = parseInt(nums);
-        nums = nums + 1;
-        $(this).parent().find('.case_num_h').css('display', 'block');
-        $(this).parent().find('.case_num_h').text(nums);
-        $(this).parent().find('.ui-list-remove-btn').css('display', 'block');
-    });
-
-    $('.ui-list-remove-btn').click(function () {
-//        var index = $(this).parent().index();//li的index
-        orderNums --;
-        $('.ui-badge').html(orderNums);
-        if(orderNums == 0){
-            $('.ui-badge').css('display', 'none');
-        }
-        var nums = $(this).parent().find('.case_num_h').text();
-        nums = nums - 1;
-        if (nums == 0) {
-            $(this).parent().find('.case_num_h').css('display', 'none');
-            $(this).css('display', 'none');
-        }
-        $(this).parent().find('.case_num_h').text(nums);
-    });
 
     var mleftScroll;
     var mrightScroll;
@@ -342,6 +124,84 @@
         vScroll: true,
         hideScrollbar: true //是否隐藏滚动条
     });
+
+    /*第一个为选中状态*/
+    $(".left_col_ul li:first-child").addClass("left-item-selected");
+    $(".left_col_ul li:first-child div h4").css('color', '#000000');
+
+    $('.left_col_ul li').click(function () {
+        var currentThis = this;
+        $(".left_col_ul li").each(function () {
+            if (currentThis == this) {
+                $(this).addClass("left-item-selected");
+                $(this).find('h4').css('color', '#000000');
+            } else {
+                $(this).removeClass("left-item-selected");
+                $(this).find('h4').css('color', '#ffffff');
+            }
+        });
+
+        categoryIndex = $(this).index();
+
+        var html='';
+        var category = categories[$(this).index()];
+        category.specials.forEach(function (special) {
+            html += '<li class="ui-border-t">' +
+            '<div class="ui-list-img ui-tag-hot">' +
+            '<span style="background-image:url(' + special.img + ');"></span>' +
+            '</div>' +
+            '<div class="ui-list-info">' +
+            '<h4 class="ui-nowrap">' + special.name + '</h4>' +
+            '<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
+            '<h6 class="ui-nowrap">' + special.orderNums + '人点过</h6>' +
+            '</div>' +
+            '<div class="ui-list-add-btn">' +
+            '<img src="icons/add_icon.png">' +
+            '</div><h4 class="case_num_h">0</h4>' +
+            '<div class="ui-list-remove-btn">' +
+            '<img src="icons/remove_icon.png">' +
+            '</div>' +
+            '</li>'
+        });
+        $(".right_col ul").html(html);
+        mrightScroll.refresh();
+    });
+
+    $('.ui-list-add-btn').live('click', function () {
+        var special = categories[categoryIndex].specials[$(this).parent().index()];
+        orderSpecials.push(special);
+
+        if(orderSpecials.length > 0){
+            $('.ui-badge').css('display', 'block');
+            $('.ui-badge').html(orderSpecials.length);
+        }
+        var nums = $(this).parent().find('.case_num_h').text();
+        nums = parseInt(nums);
+        nums = nums + 1;
+        $(this).parent().find('.case_num_h').css('display', 'block');
+        $(this).parent().find('.case_num_h').text(nums);
+        $(this).parent().find('.ui-list-remove-btn').css('display', 'block');
+
+    });
+
+    $('.ui-list-remove-btn').live('click', function () {
+        var special = categories[categoryIndex].specials[$(this).parent().index()];
+        orderSpecials.remove(special);
+//        var index = $(this).parent().index();//li的index
+        $('.ui-badge').html(orderSpecials.length);
+        if(orderSpecials.length == 0){
+            $('.ui-badge').css('display', 'none');
+        }
+        var nums = $(this).parent().find('.case_num_h').text();
+        nums = nums - 1;
+        if (nums == 0) {
+            $(this).parent().find('.case_num_h').css('display', 'none');
+            $(this).css('display', 'none');
+        }
+        $(this).parent().find('.case_num_h').text(nums);
+    });
+
+
     $('body').bind("touchmove", function (e) {
         e.preventDefault();
     });
@@ -354,6 +214,28 @@
         });
 
         $('.order_goods').css('display', 'block');
+
+        var html = '';
+        orderSpecials.forEach(function(special){
+            html += '<li class="ui-border-t">' +
+                    '<h4 class="dot_character">&#8226;</h4>' +
+
+                    '<div class="ui-list-info" style="margin-left: 10px">' +
+                    '<h4 class="ui-nowrap">' + special.name + '</h4>' +
+                    '</div>' +
+                    '<h4 class="order_price">' + '￥' + special.price + '.0' + '</h4>' +
+
+                    '<div class="ui-list-add-btn">' +
+                    '<img src="icons/add_icon.png"/>' +
+                    '</div>' +
+                    '<h4 class="case_num_h" style="display: block;">1</h4>' +
+
+                    '<div class="ui-list-remove-btn" style="display: block;">' +
+                    '<img src="icons/remove_icon.png">' +
+                    '</div>' +
+                    '</li>'
+        });
+        $(".order_goods ul").html(html);
 
         orderGoodsScroll = new IScroll('.order_goods', {
             preventDefault: false,
@@ -369,6 +251,12 @@
         orderGoodsScroll = null;
     }
 
+    Array.prototype.remove = function(val) {
+        var index = this.indexOf(val);
+        if (index > -1) {
+            this.splice(index, 1);
+        }
+    };
 </script>
 </body>
 </html>
