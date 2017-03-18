@@ -2,6 +2,14 @@
  * Created by luyan on 2/21/17.
  */
 exports.onShowCases = function (req, res) {
+	res.render("case_menu_list", {title: '菜谱'});
+};
+
+exports.onShowTest = function (req, res) {
+	res.render("test", {title: '特色菜'});
+};
+
+exports.onGetAllSpecials = function(req, res){
 	var categories = [{
 		id: 1,
 		name: '特色菜',
@@ -10,21 +18,24 @@ exports.onShowCases = function (req, res) {
 			name:'红烧河豚',
 			price:123,
 			img:'images/hetun.jpg',
-			orderNums: 1234
+			orders: 1234,
+			orderNum:0
 		},
 			{
 				id:112,
 				name:'清蒸鲈鱼',
 				price:85,
 				img:'images/luyu.jpg',
-				orderNums: 1004
+				orders: 1004,
+				orderNum:0
 			},
 			{
 				id:113,
 				name:'清蒸鸦片鱼',
 				price:90,
 				img:'images/yapianyu.jpg',
-				orderNums: 998
+				orders: 998,
+				orderNum:0
 			}]
 	},
 		{
@@ -35,14 +46,16 @@ exports.onShowCases = function (req, res) {
 				name:'毛肚炒菜',
 				price:35,
 				img:'images/maodu.jpg',
-				orderNums: 556
+				orders: 556,
+				orderNum:0
 			},
 				{
 					id:115,
 					name:'地三鲜',
 					price:25,
 					img:'images/disanxian.jpg',
-					orderNums: 678
+					orders: 678,
+					orderNum:0
 				}]
 		},
 		{
@@ -53,7 +66,8 @@ exports.onShowCases = function (req, res) {
 				name:'芦蒿',
 				price:15,
 				img:'images/luhao.jpg',
-				orderNums: 1002
+				orders: 1002,
+				orderNum:0
 			}]
 		},
 		{
@@ -64,13 +78,9 @@ exports.onShowCases = function (req, res) {
 				name:'瓦罐鸡',
 				price:85,
 				img:'images/waguanji.jpg',
-				orderNums: 345
+				orders: 345,
+				orderNum:0
 			}]
 		}];
-
-	res.render("case_menu_list", {title: '菜谱', categories : categories});
-};
-
-exports.onShowTest = function (req, res) {
-	res.render("test", {title: '特色菜'});
-};
+	res.send({msg: '请求成功!', status: 0, categories:categories});
+}
