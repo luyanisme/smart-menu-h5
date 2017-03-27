@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html lang="en" manifest="manifest/case_menu_list.appcache">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0;">
@@ -26,22 +26,22 @@
 
     <h1>菜单</h1>
 </header>
-<div id="shadow-bg" class="shadow-bg" onclick="onTapShadow()">
+<div id="shadow-bg" class="shadow-bg">
 </div>
 <div class="order_goods">
     <!--<div class="list-header ui-flex ui-flex-align-center ui-flex-pack-end"-->
-         <!--style="width: 100%;height: 30px;padding-right: 10px;">-->
-        <!--<div class="ui-row" style="">-->
-            <!--<img style="float: left; width: 15px;height: 15px;" src="icons/delete_icon.png"/>-->
-            <!--<h6 class="ui-nowrap" style="color: #4F4C4C">清空购物车</h6>-->
-        <!--</div>-->
+    <!--style="width: 100%;height: 30px;padding-right: 10px;">-->
+    <!--<div class="ui-row" style="">-->
+    <!--<img style="float: left; width: 15px;height: 15px;" src="icons/delete_icon.png"/>-->
+    <!--<h6 class="ui-nowrap" style="color: #4F4C4C">清空购物车</h6>-->
     <!--</div>-->
-        <ul class="ui-list ui-list-function ui-border-tb"></ul>
+    <!--</div>-->
+    <ul class="ui-list ui-list-function ui-border-tb"></ul>
 </div>
 <footer class="ui-footer ui-footer-stable ui-border-t">
     <div class="ui-row-flex" style="height: 100%;">
-        <div onclick="onTapCart()" class="ui-col ui-col-3">
-            <div class="ui-row account" style="">
+        <div class="ui-col ui-col-3">
+            <div class="ui-row account">
                 <div class="cart">
                     <img src="icons/cart_icon.png">
 
@@ -61,10 +61,15 @@
             </ul>
         </div>
         <div class="ui-col right_col ui-col-3" id="right_col">
-            <ul class="ui-list ui-border-tb right_col_ul"></ul>
+            <div id="scroller">
+                <!--<ul class="ui-list ui-border-tb right_col_ul">-->
+
+                <!--</ul>-->
+            </div>
         </div>
     </div>
 </section>
+<script type="text/javascript" src="js/case-menu.js"></script>
 <script type="text/javascript">
 
     var categories = [];
@@ -85,11 +90,11 @@
         }
     })
 
-    $(".complete").click(function(){
-        $(".right_col ul li:first-child").css("background","black");
+    $(".complete").tap(function () {
     });
+
 </script>
-<script type="text/javascript" src="js/case-menu.js"></script>
+
 
 </body>
 </html>

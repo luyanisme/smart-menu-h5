@@ -19,38 +19,77 @@ function initDatas() {
 	});
 	$(".left_col ul").html(leftHtml);
 
-	/*初始化右边的栏目*/
-	var rightHtml = '';
-	var category = categories[0];
-	category.specials.forEach(function (special) {
-		rightHtml += '<li class="ui-border-t">' +
-		'<div class="ui-list-img ui-tag-hot">' +
-		'<span style="background-image:url(' + special.img + ');"></span>' +
-		'</div>' +
-		'<div class="ui-list-info">' +
-		'<h4 class="ui-nowrap">' + special.name + '</h4>' +
-		'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
-		'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
-		'</div>' +
-		'<div class="ui-list-add-btn">' +
-		'<img src="icons/add_icon.png">' +
-		'</div><h4 class="case_num_h">' + special.orderNum + '</h4>' +
-		'<div class="ui-list-remove-btn">' +
-		'<img src="icons/remove_icon.png">' +
-		'</div>' +
-		'</li>'
-	});
-	$(".right_col ul").html(rightHtml);
+	///*初始化右边的栏目*/
+	//var rightHtml = '';
+	//var category = categories[0];
+	//category.specials.forEach(function (special) {
+	//	rightHtml += '<li class="ui-border-t">' +
+	//	'<div class="ui-list-img ui-tag-hot">' +
+	//	'<span id="case_img" style="background-image:url(' + special.img + ');"></span>' +
+	//	'</div>' +
+	//	'<div class="ui-list-info">' +
+	//	'<h4 class="ui-nowrap">' + special.name + '</h4>' +
+	//	'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
+	//	'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
+	//	'</div>' +
+	//	'<div class="ui-list-add-btn">' +
+	//	'<img src="icons/add_icon.png">' +
+	//	'</div><h4 class="case_num_h">' + special.orderNum + '</h4>' +
+	//	'<div class="ui-list-remove-btn">' +
+	//	'<img src="icons/remove_icon.png">' +
+	//	'</div>' +
+	//	'</li>'
+	//});
+	$(".right_col div").html(createRightE(categories));
+	mrightScroll.refresh();
 
 	/*第一个为选中状态*/
 	$(".left_col_ul li:first-child").addClass("left-item-selected");
 	$(".left_col_ul li:first-child div h4").css('color', '#000000');
 }
+
+/*初始化右边的栏目*/
+function createRightE(categories) {
+	var rightHtml = '';
+
+	for (var i=0;i<categories.length;i++)
+	{
+		var category = categories[i];
+		rightHtml += '<div id="section_'+category.id+'" class="header-section" style="background-color: #F8F8F8">'+ '' +
+		'<h4>'+category.name+'</h4></div>'
+		+ '<ul class="ui-list right_col_ul" id="ul_'+ i +'">'
+		category.specials.forEach(function (special) {
+			rightHtml += '<li class="ui-border-t">' +
+			'<div class="ui-list-img ui-tag-hot">' +
+			'<span id="case_img" style="background-image:url(' + special.img + ');"></span>' +
+			'</div>' +
+			'<div class="ui-list-info">' +
+			'<h4 class="ui-nowrap">' + special.name + '</h4>' +
+			'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
+			'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
+			'</div>' +
+			'<div class="ui-list-add-btn">' +
+			'<img src="icons/add_icon.png">' +
+			'</div><h4 class="case_num_h">' + special.orderNum + '</h4>' +
+			'<div class="ui-list-remove-btn">' +
+			'<img src="icons/remove_icon.png">' +
+			'</div>' +
+			'</li>'
+		});
+	}
+
+	//categories.forEach(function (category) {
+	//
+	//});
+	rightHtml += '</ul>'
+	return rightHtml;
+}
+
 /*将导航栏的高度和底部结算栏的高度去掉*/
-var headBarHight = $('.ui-header').height();
+var headBarHeight = $('.ui-header').height();
 var footerHeight = $('.ui-footer').height();
-$('.left_col').css('height', $(window).height() - headBarHight - footerHeight);
-$('.right_col').css('height', $(window).height() - headBarHight - footerHeight);
+$('.left_col').css('height', $(window).height() - headBarHeight - footerHeight);
+$('.right_col').css('height', $(window).height() - headBarHeight - footerHeight);
 
 var mleftScroll;
 var mrightScroll;
@@ -68,7 +107,7 @@ mrightScroll = new IScroll('.right_col', {
 	hideScrollbar: true //是否隐藏滚动条
 });
 
-$('.left_col_ul').on('click', '.left-col-item', function () {
+$('.left_col_ul').on('tap', '.left-col-item', function () {
 	if (categoryIndex == $(this).index()) {
 		return;
 	}
@@ -84,19 +123,24 @@ $('.left_col_ul').on('click', '.left-col-item', function () {
 	});
 
 	categoryIndex = $(this).index();
-
-	var category = categories[$(this).index()];
-	$(".right_col ul").html(outputRightHtml(category));
+var category = categories[$(this).index()];
+	//var category = categories[$(this).index()];
+	//$(".right_col ul").html(outputRightHtml(category));
+	mrightScroll.scrollToElement(document.querySelector("#section_"+category.id));
 	mrightScroll.refresh();
 });
 
-$('.ui-list-add-btn').live('click', function () {
-	totalOrderNums ++;
-	var special = isOrdered ? orderSpecials[$(this).parent().index()] : categories[categoryIndex].specials[$(this).parent().index()];
+$('.ui-list-add-btn').live('tap', function () {
+	totalOrderNums++;
+	var index = $(this).parent().parent().attr('id').replace(/[^0-9]+/ig,"");
+	categoryIndex = index;
+	var special = isOrdered ? orderSpecials[$(this).parent().index()] : categories[index].specials[$(this).parent().index()];
 	special.orderNum++;
-	if(!isOrdered){
-		special.rowIndex = $(this).parent().index();/*选中li的index*/
+	if (!isOrdered) {
+		special.rowIndex = $(this).parent().index();
+		/*选中li的index*/
 		special.cateIndex = categoryIndex;//选中的菜品分类
+
 	}
 	if (orderSpecials.contain(special) == false) {
 		orderSpecials.push(special);
@@ -112,19 +156,17 @@ $('.ui-list-add-btn').live('click', function () {
 	$(this).parent().find('.case_num_h').css('display', 'block');
 	$(this).parent().find('.case_num_h').text(nums);
 	$(this).parent().find('.ui-list-remove-btn').css('display', 'block');
-	if(isOrdered){
-		if(categoryIndex == special.cateIndex){
-			$(".right_col ul li").eq(special.rowIndex).find('.case_num_h').text(nums);
-		}
+	if (isOrdered) {
+			$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.case_num_h').text(nums);
 	}
-
 });
 
-$('.ui-list-remove-btn').live('click', function () {
+$('.ui-list-remove-btn').live('tap', function () {
 	totalOrderNums--;
-	var special = isOrdered ? orderSpecials[$(this).parent().index()] : categories[categoryIndex].specials[$(this).parent().index()];
+	var index = $(this).parent().parent().attr('id').replace(/[^0-9]+/ig,"");
+	categoryIndex = index;
+	var special = isOrdered ? orderSpecials[$(this).parent().index()] : categories[index].specials[$(this).parent().index()];
 	special.orderNum--;
-//        var index = $(this).parent().index();//li的index
 	$('.ui-badge').html(totalOrderNums);
 
 	var nums = $(this).parent().find('.case_num_h').text();
@@ -133,35 +175,34 @@ $('.ui-list-remove-btn').live('click', function () {
 		$(this).parent().find('.case_num_h').css('display', 'none');
 		$(this).css('display', 'none');
 		orderSpecials.remove(special);
-		if(isOrdered){
+		if (isOrdered) {
 			$(this).parent().remove();
+			orderGoodsScroll.refresh();
 		}
 	}
+
 	$(this).parent().find('.case_num_h').text(nums);
-	if(isOrdered){
-		if(categoryIndex == special.cateIndex){
-			if(nums == 0){
-				$(".right_col ul li").eq(special.rowIndex).find('.case_num_h').css('display', 'none');
-				$(".right_col ul li").eq(special.rowIndex).find('.ui-list-remove-btn').css('display', 'none');
+	if (isOrdered) {
+			if (nums == 0) {
+				$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.case_num_h').css('display', 'none');
+				$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.ui-list-remove-btn').css('display', 'none');
 			}
-			$(".right_col ul li").eq(special.rowIndex).find('.case_num_h').text(nums);
-		}
+			$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.case_num_h').text(nums);
 	}
 	if (totalOrderNums == 0) {
 		$('.ui-badge').css('display', 'none');
-		if(isOrdered){
+		if (isOrdered) {
 			onTapShadow();
 		}
 	}
 });
-
 
 $('body').bind("touchmove", function (e) {
 	e.preventDefault();
 });
 
 /*点击购物车*/
-function onTapCart() {
+$('.cart').on('tap', function () {
 	isOrdered = true;
 	if (orderSpecials.length == 0) {
 		return;
@@ -202,36 +243,40 @@ function onTapCart() {
 		vScroll: true,
 		hideScrollbar: true //是否隐藏滚动条
 	});
-}
+});
 
 /*点击背景*/
-function onTapShadow() {
+$('.shadow-bg').on('tap', function () {
+	onTapShadow();
+});
+
+function onTapShadow(){
 	isOrdered = false;
 	$('.order_goods').css('display', 'none');
 	$('.shadow-bg').css('display', 'none');
 	orderGoodsScroll = null;
-}
+};
 
-function outputRightHtml(category){
+function outputRightHtml(category) {
 	var html = '';
 	category.specials.forEach(function (special) {
-	html += '<li class="ui-border-t">' +
-	'<div class="ui-list-img ui-tag-hot">' +
-	'<span style="background-image:url(' + special.img + ');"></span>' +
-	'</div>' +
-	'<div class="ui-list-info">' +
-	'<h4 class="ui-nowrap">' + special.name + '</h4>' +
-	'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
-	'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
-	'</div>' +
-	'<div class="ui-list-add-btn">' +
-	'<img src="icons/add_icon.png">' +
-	'</div><h4 class="case_num_h" style="display: ' + (special.orderNum > 0 ? "block" : "none") + '">' + special.orderNum + '</h4>' +
-	'<div class="ui-list-remove-btn" style="display: ' + (special.orderNum > 0 ? "block" : "none") + '">' +
-	'<img src="icons/remove_icon.png">' +
-	'</div>' +
-	'</li>'
-});
+		html += '<li class="ui-border-t">' +
+		'<div class="ui-list-img ui-tag-hot">' +
+		'<span id="case_img" style="background-image:url(' + special.img + ');"></span>' +
+		'</div>' +
+		'<div class="ui-list-info">' +
+		'<h4 class="ui-nowrap">' + special.name + '</h4>' +
+		'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
+		'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
+		'</div>' +
+		'<div class="ui-list-add-btn">' +
+		'<img src="icons/add_icon.png">' +
+		'</div><h4 class="case_num_h" style="display: ' + (special.orderNum > 0 ? "block" : "none") + '">' + special.orderNum + '</h4>' +
+		'<div class="ui-list-remove-btn" style="display: ' + (special.orderNum > 0 ? "block" : "none") + '">' +
+		'<img src="icons/remove_icon.png">' +
+		'</div>' +
+		'</li>'
+	});
 	return html;
 }
 
@@ -250,3 +295,4 @@ Array.prototype.contain = function (val) {
 		return false;
 	}
 };
+

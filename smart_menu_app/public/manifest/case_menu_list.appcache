@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# 2012-02-21 v1.0.0
+
+CACHE:
+/icons/add_icon.png
+/icons/remove_icon.png
+/icons/delete_icon.png
+/icons/cart_icon.png
+
+NETWORK:
+*
