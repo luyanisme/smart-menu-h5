@@ -25,6 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routerHelper);
 
+/*添加缓存*/
+var options = {
+	maxAge: 1000*60*60
+};
+app.use(express.static(path.join(__dirname, 'images'), options));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

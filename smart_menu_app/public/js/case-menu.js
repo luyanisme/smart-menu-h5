@@ -6,6 +6,8 @@ var orderSpecials = [];
 var categoryIndex = 0;//记录当前是第几个选项
 var totalOrderNums = 0;//购买商品的总数
 var isOrdered = false;//是否在已选界面
+var totalPrice = 0;//商品总价
+var isScrolling = false;//是否手动滑动
 
 function initDatas() {
 	/*初始化左边的栏目*/
@@ -19,49 +21,32 @@ function initDatas() {
 	});
 	$(".left_col ul").html(leftHtml);
 
-	///*初始化右边的栏目*/
-	//var rightHtml = '';
-	//var category = categories[0];
-	//category.specials.forEach(function (special) {
-	//	rightHtml += '<li class="ui-border-t">' +
-	//	'<div class="ui-list-img ui-tag-hot">' +
-	//	'<span id="case_img" style="background-image:url(' + special.img + ');"></span>' +
-	//	'</div>' +
-	//	'<div class="ui-list-info">' +
-	//	'<h4 class="ui-nowrap">' + special.name + '</h4>' +
-	//	'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
-	//	'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
-	//	'</div>' +
-	//	'<div class="ui-list-add-btn">' +
-	//	'<img src="icons/add_icon.png">' +
-	//	'</div><h4 class="case_num_h">' + special.orderNum + '</h4>' +
-	//	'<div class="ui-list-remove-btn">' +
-	//	'<img src="icons/remove_icon.png">' +
-	//	'</div>' +
-	//	'</li>'
-	//});
 	$(".right_col div").html(createRightE(categories));
 	mrightScroll.refresh();
 
 	/*第一个为选中状态*/
 	$(".left_col_ul li:first-child").addClass("left-item-selected");
 	$(".left_col_ul li:first-child div h4").css('color', '#000000');
+
+	// 图片懒加载
+	$('div .case_img').lazyload({
+		effect : "fadeIn"
+	});
 }
 
 /*初始化右边的栏目*/
 function createRightE(categories) {
 	var rightHtml = '';
 
-	for (var i=0;i<categories.length;i++)
-	{
+	for (var i = 0; i < categories.length; i++) {
 		var category = categories[i];
-		rightHtml += '<div id="section_'+category.id+'" class="header-section" style="background-color: #F8F8F8">'+ '' +
-		'<h4>'+category.name+'</h4></div>'
-		+ '<ul class="ui-list right_col_ul" id="ul_'+ i +'">'
+		rightHtml += '<div id="section_' + i + '" class="header-section" style="background-color: #F8F8F8">' + '' +
+		'<h4>' + category.name + '</h4></div>'
+		+ '<ul class="ui-list right_col_ul" id="ul_' + i + '">'
 		category.specials.forEach(function (special) {
 			rightHtml += '<li class="ui-border-t">' +
 			'<div class="ui-list-img ui-tag-hot">' +
-			'<span id="case_img" style="background-image:url(' + special.img + ');"></span>' +
+			'<span class="case_img" data-original="' + special.img + '"></span>' +
 			'</div>' +
 			'<div class="ui-list-info">' +
 			'<h4 class="ui-nowrap">' + special.name + '</h4>' +
@@ -77,11 +62,8 @@ function createRightE(categories) {
 			'</li>'
 		});
 	}
-
-	//categories.forEach(function (category) {
-	//
-	//});
 	rightHtml += '</ul>'
+
 	return rightHtml;
 }
 
@@ -107,35 +89,44 @@ mrightScroll = new IScroll('.right_col', {
 	hideScrollbar: true //是否隐藏滚动条
 });
 
-$('.left_col_ul').on('tap', '.left-col-item', function () {
-	if (categoryIndex == $(this).index()) {
-		return;
-	}
-	var currentThis = this;
-	$(".left_col_ul li").each(function () {
-		if (currentThis == this) {
-			$(this).addClass("left-item-selected");
-			$(this).find('h4').css('color', '#000000');
-		} else {
-			$(this).removeClass("left-item-selected");
-			$(this).find('h4').css('color', '#ffffff');
-		}
-	});
+mrightScroll.on('scrollStart', function () {
+	console.log('scrollStart');
+	isScrolling = true;
+});
 
-	categoryIndex = $(this).index();
-var category = categories[$(this).index()];
-	//var category = categories[$(this).index()];
-	//$(".right_col ul").html(outputRightHtml(category));
-	mrightScroll.scrollToElement(document.querySelector("#section_"+category.id));
+mrightScroll.on("scrollEnd", function () {
+	console.log('scrollEnd');
+	if (isScrolling) {
+		var selectIndex = 0;
+		for (var i = 0; i < categories.length; i++) {
+			if ($("#section_" + i).position().top < headBarHeight) {
+				selectIndex = i;
+			}
+		}
+		leftItemTap(selectIndex);
+	}
+	// 图片懒加载
+	$('div .case_img').lazyload({
+		effect : "fadeIn"
+	});
+});
+
+$('.left_col_ul').on('tap', '.left-col-item', function () {
+	isScrolling = false;
+	leftItemTap($(this).index());
+	//categoryIndex = $(this).index();
+	//var category = categories[categoryIndex];
+	mrightScroll.scrollToElement(document.querySelector("#section_" + categoryIndex));
 	mrightScroll.refresh();
 });
 
 $('.ui-list-add-btn').live('tap', function () {
 	totalOrderNums++;
-	var index = $(this).parent().parent().attr('id').replace(/[^0-9]+/ig,"");
+	var index = $(this).parent().parent().attr('id').replace(/[^0-9]+/ig, "");
 	categoryIndex = index;
 	var special = isOrdered ? orderSpecials[$(this).parent().index()] : categories[index].specials[$(this).parent().index()];
 	special.orderNum++;
+	totalPrice = totalPrice + special.price;
 	if (!isOrdered) {
 		special.rowIndex = $(this).parent().index();
 		/*选中li的index*/
@@ -156,17 +147,21 @@ $('.ui-list-add-btn').live('tap', function () {
 	$(this).parent().find('.case_num_h').css('display', 'block');
 	$(this).parent().find('.case_num_h').text(nums);
 	$(this).parent().find('.ui-list-remove-btn').css('display', 'block');
+
+	$(".account p").text("￥" + parseFloat(totalPrice).toFixed(1));
 	if (isOrdered) {
-			$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.case_num_h').text(nums);
+		$(".right_col div").find("#ul_" + special.cateIndex + " li").eq(special.rowIndex).find('.case_num_h').text(nums);
+		$(this).parent().find('.order_price').text("￥" + parseFloat(nums * special.price).toFixed(1));
 	}
 });
 
 $('.ui-list-remove-btn').live('tap', function () {
 	totalOrderNums--;
-	var index = $(this).parent().parent().attr('id').replace(/[^0-9]+/ig,"");
+	var index = $(this).parent().parent().attr('id').replace(/[^0-9]+/ig, "");
 	categoryIndex = index;
 	var special = isOrdered ? orderSpecials[$(this).parent().index()] : categories[index].specials[$(this).parent().index()];
 	special.orderNum--;
+	totalPrice = totalPrice - special.price;
 	$('.ui-badge').html(totalOrderNums);
 
 	var nums = $(this).parent().find('.case_num_h').text();
@@ -182,12 +177,15 @@ $('.ui-list-remove-btn').live('tap', function () {
 	}
 
 	$(this).parent().find('.case_num_h').text(nums);
+	$(".account p").text("￥" + parseFloat(totalPrice).toFixed(1));
+
 	if (isOrdered) {
-			if (nums == 0) {
-				$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.case_num_h').css('display', 'none');
-				$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.ui-list-remove-btn').css('display', 'none');
-			}
-			$(".right_col div").find("#ul_"+special.cateIndex+" li").eq(special.rowIndex).find('.case_num_h').text(nums);
+		if (nums == 0) {
+			$(".right_col div").find("#ul_" + special.cateIndex + " li").eq(special.rowIndex).find('.case_num_h').css('display', 'none');
+			$(".right_col div").find("#ul_" + special.cateIndex + " li").eq(special.rowIndex).find('.ui-list-remove-btn').css('display', 'none');
+		}
+		$(".right_col div").find("#ul_" + special.cateIndex + " li").eq(special.rowIndex).find('.case_num_h').text(nums);
+		$(this).parent().find('.order_price').text("￥" + parseFloat(nums * special.price).toFixed(1));
 	}
 	if (totalOrderNums == 0) {
 		$('.ui-badge').css('display', 'none');
@@ -223,7 +221,7 @@ $('.cart').on('tap', function () {
 		'<div class="ui-list-info" style="margin-left: 10px">' +
 		'<h4 class="ui-nowrap">' + special.name + '</h4>' +
 		'</div>' +
-		'<h4 class="order_price">' + '￥' + special.price + '.0' + '</h4>' +
+		'<h4 class="order_price">' + '￥' + (parseFloat((special.price * special.orderNum)).toFixed(1)) + '</h4>' +
 
 		'<div class="ui-list-add-btn">' +
 		'<img src="icons/add_icon.png"/>' +
@@ -250,34 +248,27 @@ $('.shadow-bg').on('tap', function () {
 	onTapShadow();
 });
 
-function onTapShadow(){
+function onTapShadow() {
 	isOrdered = false;
 	$('.order_goods').css('display', 'none');
 	$('.shadow-bg').css('display', 'none');
-	orderGoodsScroll = null;
+	orderGoodsScroll.destroy();
 };
 
-function outputRightHtml(category) {
-	var html = '';
-	category.specials.forEach(function (special) {
-		html += '<li class="ui-border-t">' +
-		'<div class="ui-list-img ui-tag-hot">' +
-		'<span id="case_img" style="background-image:url(' + special.img + ');"></span>' +
-		'</div>' +
-		'<div class="ui-list-info">' +
-		'<h4 class="ui-nowrap">' + special.name + '</h4>' +
-		'<h4 class="ui-nowrap" style="color: #FF5E24;">' + special.price + '.0￥</h4>' +
-		'<h6 class="ui-nowrap">' + special.orders + '人点过</h6>' +
-		'</div>' +
-		'<div class="ui-list-add-btn">' +
-		'<img src="icons/add_icon.png">' +
-		'</div><h4 class="case_num_h" style="display: ' + (special.orderNum > 0 ? "block" : "none") + '">' + special.orderNum + '</h4>' +
-		'<div class="ui-list-remove-btn" style="display: ' + (special.orderNum > 0 ? "block" : "none") + '">' +
-		'<img src="icons/remove_icon.png">' +
-		'</div>' +
-		'</li>'
+function leftItemTap(index) {
+	if (categoryIndex == index) {
+		return;
+	}
+	$(".left_col_ul li").each(function () {
+		if (index == $(this).index()) {
+			$(this).addClass("left-item-selected");
+			$(this).find('h4').css('color', '#000000');
+		} else {
+			$(this).removeClass("left-item-selected");
+			$(this).find('h4').css('color', '#ffffff');
+		}
 	});
-	return html;
+	categoryIndex = index;
 }
 
 Array.prototype.remove = function (val) {

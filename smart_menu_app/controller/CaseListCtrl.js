@@ -2,7 +2,7 @@
  * Created by luyan on 2/21/17.
  */
 exports.onShowCases = function (req, res) {
-	res.render("case_menu_list", {title: '菜谱'});
+	res.render("case_menu_list", {title: '新区餐厅'});
 };
 
 exports.onShowTest = function (req, res) {
@@ -17,7 +17,7 @@ exports.onGetAllSpecials = function(req, res){
 			id:111,
 			name:'红烧河豚',
 			price:123,
-			img:'images/hetun.jpg',
+			img:'hetun.jpg',
 			orders: 1234,
 			orderNum:0
 		},
@@ -25,7 +25,7 @@ exports.onGetAllSpecials = function(req, res){
 				id:112,
 				name:'清蒸鲈鱼',
 				price:85,
-				img:'images/luyu.jpg',
+				img:'luyu.jpg',
 				orders: 1004,
 				orderNum:0
 			},
@@ -33,7 +33,31 @@ exports.onGetAllSpecials = function(req, res){
 				id:113,
 				name:'清蒸鸦片鱼',
 				price:90,
-				img:'images/yapianyu.jpg',
+				img:'yapianyu.jpg',
+				orders: 998,
+				orderNum:0
+			},
+			{
+				id:111,
+				name:'红烧河豚',
+				price:123,
+				img:'hetun.jpg',
+				orders: 1234,
+				orderNum:0
+			},
+			{
+				id:112,
+				name:'清蒸鲈鱼',
+				price:85,
+				img:'luyu.jpg',
+				orders: 1004,
+				orderNum:0
+			},
+			{
+				id:113,
+				name:'清蒸鸦片鱼',
+				price:90,
+				img:'yapianyu.jpg',
 				orders: 998,
 				orderNum:0
 			}]
@@ -45,7 +69,7 @@ exports.onGetAllSpecials = function(req, res){
 				id:114,
 				name:'毛肚炒菜',
 				price:35,
-				img:'images/maodu.jpg',
+				img:'maodu.jpg',
 				orders: 556,
 				orderNum:0
 			},
@@ -53,7 +77,39 @@ exports.onGetAllSpecials = function(req, res){
 					id:115,
 					name:'地三鲜',
 					price:25,
-					img:'images/disanxian.jpg',
+					img:'disanxian.jpg',
+					orders: 678,
+					orderNum:0
+				},
+				{
+					id:114,
+					name:'毛肚炒菜',
+					price:35,
+					img:'maodu.jpg',
+					orders: 556,
+					orderNum:0
+				},
+				{
+					id:115,
+					name:'地三鲜',
+					price:25,
+					img:'disanxian.jpg',
+					orders: 678,
+					orderNum:0
+				},
+				{
+					id:114,
+					name:'毛肚炒菜',
+					price:35,
+					img:'maodu.jpg',
+					orders: 556,
+					orderNum:0
+				},
+				{
+					id:115,
+					name:'地三鲜',
+					price:25,
+					img:'disanxian.jpg',
 					orders: 678,
 					orderNum:0
 				}]
@@ -65,7 +121,7 @@ exports.onGetAllSpecials = function(req, res){
 				id:116,
 				name:'芦蒿',
 				price:15,
-				img:'images/luhao.jpg',
+				img:'luhao.jpg',
 				orders: 1002,
 				orderNum:0
 			}]
@@ -77,7 +133,7 @@ exports.onGetAllSpecials = function(req, res){
 				id:117,
 				name:'瓦罐鸡',
 				price:85,
-				img:'images/waguanji.jpg',
+				img:'waguanji.jpg',
 				orders: 345,
 				orderNum:0
 			}]
