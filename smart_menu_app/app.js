@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routerHelper = require("./routes/router.js");
 
 var app = express();
@@ -48,5 +49,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   //res.render('error');
 });
+
+app.useSocket = function(server){
+	routerHelper.useSocket(server);
+};
 
 module.exports = app;

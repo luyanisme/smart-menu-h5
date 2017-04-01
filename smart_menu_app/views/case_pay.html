@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" manifest="manifest/case_menu_list.appcache">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0;">
+    <meta http-equiv="Cache-Control" content="max-age=604800"/>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="frozenUi/css/frozen.css" media="screen">
+    <script type="text/javascript" src="frozenUi/lib/zepto.min.js"></script>
+    <script type="text/javascript" src="js/lazyload.min.js"></script>
+    <script type="text/javascript" src="frozenUi/js/frozen.js"></script>
+
+    <script type="text/javascript" src="iScroll/iscroll.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+    </script>
+
+    <style type="text/css">
+        .ui-container{
+            background-color: #4F4C4C;
+        }
+
+        .ordered{
+            width: auto;height: auto;
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 30%;
+            margin-top: -15px;
+        }
+
+        .dinner_tag{
+            font-size: 60px;
+            color: #ffffff;
+            width: 100%;
+            text-align: center;
+        }
+
+        .ui-badge-cornernum{
+            top: 4px;
+            right: -9px;
+            height: 19px;
+            min-width: 19px;
+        }
+
+        .clients li{
+            display: inline-block;
+            text-align: center;
+        }
+
+        .ui-avatar{
+            margin: 0 auto
+        }
+
+        .content_show{
+            margin-top: 25px;
+        }
+
+        @-webkit-keyframes twinkling{
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .twinkling{
+            -webkit-animation: twinkling 1s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="body">
+<header class="ui-header ui-header-positive" style="background-color: #4F4C4C">
+    <i class="ui-icon-return" onclick="history.back()"></i>
+    <h1><%= title%></h1>
+    <div class="ui-badge-wrap ordered">已点<div class="ui-badge-cornernum">12</div></div>
+</header>
+<section class="ui-container">
+    <h1 class="dinner_tag">06号</h1>
+    <div class="content_show">
+        <ul class="ui-row ui-whitespace clients">
+            <!--<li class="ui-col ui-col-20">-->
+                <!--<div class="ui-avatar">-->
+                    <!--<span style="background-image:url()"></span>-->
+                <!--</div>-->
+                <!--<p style="color: #ffffff">xxxx</p>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</section>
+<script type="text/javascript">
+
+    /*将导航栏的高度和底部结算栏的高度去掉*/
+    var headBarHeight = $('.ui-header').height();
+    $('.ui-container').css('height', $(window).height() - headBarHeight);
+
+    var socket = io();
+
+    socket.emit('join', '<%= name%>');
+    socket.on('state', function (msg, statue) {
+        if(statue == true){
+            socket.emit('getClients', "lu");
+        }
+    });
+    socket.on('clients', function (data) {
+        var html = "";
+        data.forEach(function(name){
+            html += '<li class="ui-col ui-col-20">'+
+            '<div class="ui-avatar">'+
+            '<span style="background-image:url()"></span>'+
+            '</div>'+
+            '<p style="color: #ffffff">'+name+'</p>'+
+            '</li>'
+        });
+
+        html += '<li class="ui-col ui-col-20 twinkling">'+
+        '<div class="ui-avatar">'+
+        '<span style="background-image:url()"></span>'+
+        '</div>'+
+        '<p style="color: #ffffff"></p>'+
+        '</li>'
+
+        $(".clients").html(html);
+    });
+
+
+</script>
+
+
+</body>
+</html>
